@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation - Dhaka Mart 360</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #eef4f8;
+    }
+    .navbar {
+      background: #ffffff;
+      color: black;
+      padding: 0;
+      position: relative;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00e0ff;
+    }
+    .navbar .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .navbar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      width: 200px;
+      box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+    }
+    .navbar .icon {
+      background-color: #00e0ff;
+      color: #141e30;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .navbar .icon:hover {
+      background-color: #00bcd4;
+    }
+    .confirmation-wrapper {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .confirmation-icon {
+      font-size: 60px;
+      color: #f1ab32;
+      margin-bottom: 20px;
+    }
+    .confirmation-wrapper h2 {
+      margin: 10px 0;
+      font-size: 22px;
+    }
+    .confirmation-wrapper p {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #333;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #000;
+    }
+    .thank-text {
+      font-size: 16px;
+      margin-top: 20px;
+      color: #222;
+    }
+    .btn {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      margin-top: 25px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #f1ab32;
+    }
+    footer {
+      background: #000;
+      color: white;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+    footer .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    footer .footer-section {
+      flex: 1;
+      min-width: 200px;
+    }
+    footer .footer-section h4 {
+      border-bottom: 2px solid #fff;
+      display: inline-block;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+    footer .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    footer .footer-section ul li {
+      margin: 8px 0;
+    }
+    footer .footer-section ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    footer .footer-bottom {
+      background: #14647a;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+    }
+	
+  </style>
+</head>
+<body>
+    <div class="navbar">
+    <img src="topbar.png" alt="logo icon">
+  </div>
+  
+
+  <div class="confirmation-wrapper">
+    <div class="confirmation-icon">✅</div>
+    <h2>প্রিয় <span id="customer-name">গ্রাহক</span></h2>
+    <p>আপনার অর্ডার নাম্বার - <span class="highlight" id="invoice-id"></span></p>
+    <p>পণ্যের মূল্য - <span class="highlight" id="product-price">0 TK</span></p>
+    <p>ডেলিভারি চার্জ - <span class="highlight" id="delivery-charge">0 TK</span></p>
+
+    <p class="thank-text">
+      অসংখ্য ধন্যবাদ স্যার আপনার অর্ডারটি কনফার্ম হয়েছে। তাই বার বার অর্ডার না করার অনুরোধ রইলো। কল সেন্টার থেকে সকাল ১০ টা থেকে রাত ৯ টার মধ্যে ফোন করে আপনার অর্ডারটি কনফার্ম করা হবে।
+    </p>
+
+    <p style="margin-top: 20px; font-weight: bold;">ধন্যবাদান্তে<br>Bikroy Zone</p>
+
+    <a href="index.html" class="btn">হোমপেজে ফিরে যান</a>
+  </div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <img src="footer_logo.png" alt="DhakaMart360" style="width: 120px; margin-bottom: 10px;">
+      <p>Shomaj Kollan Moshjid Road, Mirpur-10, Dhaka</p>
+      <p>sale@dhakamart360.com</p>
+      <p>01714476086</p>
+    </div>
+    <div class="footer-section">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Terms and condition</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Policy</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Delivery Policy</a></li>
+        <li><a href="#">Return and Exchange</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Social</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Dhakamart360.com © Copyright || Developed © infoedgeit
+  </div>
+</footer>
+
+
+  <script>
+    function generateInvoiceID() {
+      return 'INV' + Math.floor(100000 + Math.random() * 900000);
+    }
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  const price = params.get('price');
+  const delivery = params.get('delivery');
+
+
+    document.getElementById('customer-name').textContent = name || 'গ্রাহক';
+    document.getElementById('product-price').textContent = price ? price + ' TK' : '0 TK';
+    document.getElementById('delivery-charge').textContent = delivery ? delivery + ' TK' : '0 TK';
+    document.getElementById('invoice-id').textContent = generateInvoiceID();
+  </script>
+</body>
+</html>

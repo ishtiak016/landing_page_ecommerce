@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Dhaka Mart 360</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f8fb;
+    }
+    .logo-bar {
+      background: #f4f8fb;
+      padding: 30px 0;
+      position: relative;
+      text-align: center;
+    }
+	  .container {
+      width: 75%;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .logo-bar h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      z-index: 2;
+    }
+    .progress-line {
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: #ccc;
+      z-index: 1;
+    }
+    .step-icons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 3;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 14px;
+      color: #fff;
+    }
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #4db6ac;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .step.middle .step-circle {
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+    }
+    .checkout-container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      padding: 30px;
+    }
+    h2, h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .section-title {
+	  background:#f1ab32;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+    .checkout-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .billing, .summary {
+      flex: 1;
+      min-width: 300px;
+    }
+    label {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+	     }
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .radio-group {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-top: 10px;
+    }
+    .radio-group label {
+      display: block;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #fff;
+      margin-bottom: 10px;
+    }
+    .radio-group input[type="radio"] {
+      margin-right: 8px;
+    }
+    .summary-box {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .summary-box table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .summary-box th, .summary-box td {
+      padding: 8px 0;
+      text-align: left;
+    }
+    .summary-box td input[type="number"] {
+      width: 50px;
+      text-align: center;
+    }
+    .total {
+      font-weight: bold;
+    }
+    .order-note {
+      font-size: 14px;
+      color: #388e3c;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .place-order-btn {
+      background: #f1ab32;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .place-order-btn:hover {
+      background: #f1ab32;
+    }
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0;
+    }
+	 footer {
+    background: #000;
+    color: white;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+  footer .footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  footer .footer-section {
+    flex: 1;
+    min-width: 200px;
+  }
+  footer .footer-section h4 {
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  footer .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  footer .footer-section ul li {
+    margin: 8px 0;
+  }
+  footer .footer-section ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  footer .footer-bottom {
+    background: #14647a;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+  }
+    .navbar {
+      background: #ffffff;
+      color: black;
+      padding: 0;
+      position: relative;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #00e0ff;
+    }
+    .navbar .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .navbar input[type="text"] {
+      padding: 8px 12px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      width: 200px;
+      box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+    }
+    .navbar .icon {
+      background-color: #00e0ff;
+      color: #141e30;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .navbar .icon:hover {
+      background-color: #00bcd4;
+    }
+	   input[type="text"], input[type="tel"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <img src="topbar.png" alt="logo icon">
+  </div>
+  
+
+
+<div class="checkout-container">
+    <h3>অর্ডারটি কনফার্ম করতে ফর্মটি সম্পূর্ণ পূরণ করে নিচের Place Order বাটনে ক্লিক করুন।</h3>
+    <div class="divider"></div>
+    <div class="checkout-grid">
+      <div class="billing">
+	  
+        <div class="section-title">Billing details</div>
+        <label>আপনার নাম লিখুন *</label>
+        <input type="text" id="name" placeholder="আপনার নাম">
+
+        <label>মোবাইল নাম্বার *</label>
+        <input type="tel" id="phone" placeholder="01XXXXXXXXX">
+
+        <label>সম্পূর্ণ ঠিকানা *</label>
+        <input type="text" id="address" placeholder="সম্পূর্ণ ঠিকানা">
+
+        <div class="section-title">Shipping</div>
+        <div class="radio-group">
+          <label><input type="radio" name="shipping" value="80" checked> ঢাকার ভিতরে: ৮০৳</label>
+          <label><input type="radio" name="shipping" value="110"> ঢাকার বাইরে: ১১০৳</label>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div class="section-title">Your order</div>
+        <div class="summary-box">
+          <table>
+            <tr>
+              <th>Product</th>
+              <th>Subtotal</th>
+            </tr>
+            <tr>
+              <td>Wireless Visual Ear Cleaner × <input type="number" id="quantity" value="1" min="1"></td>
+              <td id="subtotal">১২৯০৳</td>
+            </tr>
+            <tr>
+              <td>Subtotal</td>
+              <td id="subtotal-value">১২৯০৳</td>
+            </tr>
+            <tr>
+              <td class="total">Total</td>
+              <td class="total" id="total-value">১৩৭০৳</td>
+            </tr>
+          </table>
+          <div class="section-title" style="margin-top: 20px;">Cash on delivery</div>
+          <p style="background: #eee; padding: 10px; border-radius: 5px;">Pay with cash upon delivery.</p>
+          <p class="order-note">অর্ডারটি কনফার্ম করতে নিচের অর্ডার করুন বাটনে ক্লিক করুন।</p>
+          <button class="place-order-btn">অর্ডার করুন</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer (unchanged) -->
+
+<script>document.querySelector('.place-order-btn').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const quantity = document.getElementById('quantity').value.trim()||1;
+  const productPrice = 1290;
+  const delivery = parseInt(document.querySelector('input[name="shipping"]:checked').value);
+  const total = productPrice * quantity + delivery;
+
+  if (!name || !phone || !address) {
+    alert("অনুগ্রহ করে নাম, মোবাইল নম্বর এবং ঠিকানা পূরণ করুন।");
+    return;
+  }
+
+  fetch('http://localhost/api/save_order.php', {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      phone,
+      address,
+      quantity,
+      price: productPrice * quantity,
+      delivery,
+      total
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.text())  // get raw text first
+  .then(text => {
+    try {
+      const data = JSON.parse(text);
+      if (data.success) {
+        window.location.href = `order.html?name=${encodeURIComponent(name)}&price=${productPrice * quantity}&delivery=${delivery}`;
+      } else {
+        alert("Failed to save order: " + (data.error || 'Unknown error'));
+      }
+    } catch (e) {
+      console.error("Response is not valid JSON:", text);
+      alert("Server error: check console");
+    }
+  })
+  .catch(err => {
+    alert("Error submitting order. Please try again.");
+    console.error(err);
+  });
+});
+</script>
+</body>
+</html>
+
