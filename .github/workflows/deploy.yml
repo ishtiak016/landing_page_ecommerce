@@ -1,0 +1,23 @@
+name: FTP Deploy
+
+on:
+  push:
+    branches:
+      - ear_wax_removal
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          ftp-server: ftp://ftp.yourdomain.com
+          ftp-username: ${{ ishtiak@dhakamart360.com }}
+          ftp-password: ${{ Ishtiak@3702 }}
+          local-dir: ./   # আপনার লোকাল প্রজেক্ট ফোল্ডার যেখানে কোড আছে
+          server-dir: /home/infotywd/dhakamart360.com/new   # সার্ভারে ফাইল আপলোড করার লোকেশন
