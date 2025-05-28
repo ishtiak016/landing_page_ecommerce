@@ -16,8 +16,8 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          ftp-server: ftp://ftp.yourdomain.com
+          ftp-server: ftp://ftp.dhakamart360.com
           ftp-username: ${{ ishtiak@dhakamart360.com }}
           ftp-password: ${{ Ishtiak@3702 }}
           local-dir: ./   # আপনার লোকাল প্রজেক্ট ফোল্ডার যেখানে কোড আছে
-          server-dir: /home/infotywd/dhakamart360.com/new   # সার্ভারে ফাইল আপলোড করার লোকেশন
+          server-dir: /home/infotywd/dhakamart360.com/new  # সার্ভারে ফাইল আপলোড করার লোকেশন
