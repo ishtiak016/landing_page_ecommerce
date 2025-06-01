@@ -3,7 +3,7 @@ name: FTP Deploy
 on:
   push:
     branches:
-      - ear_wax_removal
+      - ear_wax_removal # Ei branch e push korlei deploy cholbe
 
 jobs:
   ftp-deploy:
@@ -11,13 +11,13 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # Repo theke code checkout korbe
 
-      - name: FTP Deploy
+      - name: FTP Deploy to Server
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          ftp-server: ftp://ftp.dhakamart360.com
-          ftp-username: ${{ ishtiak@dhakamart360.com }}
-          ftp-password: ${{ Ishtiak@3702 }}
-          local-dir: ./   # আপনার লোকাল প্রজেক্ট ফোল্ডার যেখানে কোড আছে
-          server-dir: /home/infotywd/dhakamart360.com/new  # সার্ভারে ফাইল আপলোড করার লোকেশন
+          ftp-server: ftp://ftp.dhakamart360.com # FTP server address
+          ftp-username: ${{ secrets.FTP_USERNAME }} # GitHub secret e save kora username
+          ftp-password: ${{ secrets.FTP_PASSWORD }} # GitHub secret e save kora password
+          local-dir: ./ # Local directory to upload (root folder)
+          server-dir: /home/infotywd/dhakamart360.com/new # Remote server folder path
