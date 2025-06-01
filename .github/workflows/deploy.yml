@@ -9,7 +9,6 @@ jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
 
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3 # Repo theke code checkout korbe
@@ -17,7 +16,7 @@ jobs:
       - name: FTP Deploy to Server
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          ftp-server: ftp://ftp.dhakamart360.com # FTP server address
+          ftp-server: ftp://ftp.infoedgeit.com # FTP server address
           ftp-username: ${{ secrets.FTP_USERNAME }} # GitHub secret e save kora username
           ftp-password: ${{ secrets.FTP_PASSWORD }} # GitHub secret e save kora password
           local-dir: ./ # Local directory to upload (root folder)
